@@ -1,0 +1,227 @@
+/*  layout */
+
+@use 'layout/footer';
+@use 'layout/header';
+
+
+body{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    background-color: #FEFEE2;
+}
+
+.center
+{
+    text-align: center;
+}
+
+/* expression régulieres du mot de passe */
+.invalid
+{
+    color: red;
+}
+
+.valid
+{
+    color: green;
+}
+
+/* Page de profil */
+
+.block
+{
+    text-align: center;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.block img
+
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+/* affiche la liste des santons depuis la page santonnier*/
+.list_product_santons
+{
+  height: 100%;
+  margin-bottom: 300px;
+}
+section h1
+{
+    text-align: center;
+    margin-bottom: 10px;
+}
+/* Affiche les offres des santonniers*/
+.container-card
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+.card-price,.card-title
+{
+    font-weight: bold;
+}
+ .card-body
+{  
+   
+    object-fit: cover;
+}
+
+/* Page histoire */
+
+.banner_histoire
+{
+    margin-top: -95px;
+    background-image: url('https://storage.marcelcarbonel.com/breadcrumbs/histoire.jpg');
+    background-size: cover;
+    background-position: fixed;
+    height: 300px;
+    background-repeat: no-repeat;
+}
+.container_histoire
+{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.text
+{
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.405);
+}
+.image
+{
+    width: 40%;
+}
+
+@media  screen and (max-width: 1200px) {
+    .container_histoire
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .image
+    {
+        width: 100%;
+    }
+    .text
+    {
+        width: 100%;
+    }
+}
+
+/* Page pour reinstalistation mot de passe */
+.form_mdp
+{
+    height: 60vh;
+}
+
+/** Page  d'accueil */
+
+.new
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    object-fit: cover;
+    gap: 10px;
+}
+
+.banner img
+{
+    margin-top: -95px;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+
+@media  screen and (max-width: 700px) {
+  
+    .banner img
+    {
+      margin-top: -129px;
+      height: auto;
+    }
+   
+}
+
+/** Page  detail d'un produit */
+
+a
+{
+    text-decoration: none;
+}
+/* page home*/
+
+/* pagination */
+
+.pagination a
+{
+    margin-left: 5px;
+    font-size: 30px;
+}
+.pagination a:hover
+{
+    color:#c28165;
+    
+}
+.pagination .current
+{
+    color:#c28165 ;
+    font-size: 30px;
+}
+
+/* Scroll Top */
+
+.scrollTop
+{
+    position: fixed;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    transition: 1.0s;
+    cursor: pointer;
+    
+}
+
+.scrollTop.active
+{
+    bottom: 40px;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Image si y a pas de produit dans la page filtrer les produits*/
+
+.lost
+{
+  height: 300px;
+  width: 300px !important
+}
+
+.img-lost
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil Site portail des Santonner{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .img img {
+            width: 300px; /* Set the width */
+            height: 300px; /* Set the height */
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+
+<header class="banner">
+    <img src="{{asset('img/Creche_Provencale_Header.jpg')}}"  width="100%" height="auto" alt="image d'une creche">
+</header>
+
+<h1 class="text-center mt-4 mb-4">Bienvenue dans le monde des santonniers</h1>
+
+<h2>Découvrez tous nos nouveautés</h2>
+
+<section class="new">
+    <div class="img">
+        <a href="{{path('offre_list')}}">
+            <img src="{{asset('img/santon-augustine-pagnol-campana.png')}}"  alt="image d'une creche">
+        </a>
+    </div>
+
+    <div class="img">
+        <a href="{{path('offre_list')}}">
+            <img src="{{asset('img/santon-fille-assise-gateau.png')}}"  alt="image d'une creche">
+        </a>
+    </div>
+
+    <div class="img">
+        <a href="{{path('offre_list')}}">
+            <img src="{{asset('img/santon-cor-des-alpes-magali.jpg')}}"  alt="image d'une creche">
+        </a>
+    </div>
+
+    <div class="img">
+        <a href="{{path('offre_list')}}">
+            <img src="{{asset('img/santon.jpg')}}"  alt="image d'une creche">
+        </a>
+    </div>
+</section>
+
+<h2 class="mt-5">Découvrez les offres de nos santonniers</h2>
+
+<section class="new mb-5">
+    <div class="img">
+        <a href="{{ path('category_couple',{ 'search': 'couple'}) }}">
+            <img src="{{asset('img/couple-de-vieux-7cm.jpg')}}"  alt="image d'une creche">
+        </a>
+        <br>
+        <a class=" btn btn-primary w-100 " href="{{ path('category_couple',{ 'search': 'couple'}) }}"> Découvrez les santons Couples  <span><i class="fa-solid fa-arrow-right"></i></span></a>
+    </div>
+
+    <div class="img">
+        <a href="{{ path('category_couple',{ 'search': 'métiers'}) }}">
+            <img src="{{asset('img/metier_santon.png')}}"  alt="image d'une creche">
+        </a>
+        <br>
+        <a class=" btn btn-primary w-100 " href="{{ path('category_couple',{ 'search': 'métiers'}) }}">Découvrez les santons Métiers  <span><i class="fa-solid fa-arrow-right"></i></span></a>
+    </div>
+
+    <div class="img">
+        <a href="{{ path('category_couple',{ 'search': 'animal'}) }}">
+            <img src="{{asset('img/animal.jpg')}}"  alt="image d'une creche">
+        </a>
+        <br>
+        <a class=" btn btn-primary w-100 " href="{{ path('category_couple',{ 'search': 'animal'}) }}">Découvrez les santons Animals  <span><i class="fa-solid fa-arrow-right"></i></span></a>
+    </div>
+
+    <div class="img">
+        <a href="{{ path('category_couple',{ 'search': 'crèches'}) }}">
+            <img src="{{asset('img/creche.jpg')}}"  alt="image d'une creche">
+        </a>
+        <br>
+        <a class=" btn btn-primary w-100 " href="{{ path('category_couple',{ 'search': 'crèches'}) }}">Découvrez les santons Crèches  <span><i class="fa-solid fa-arrow-right"></i></span></a>
+    </div>
+</section>
+
+
+{% endblock %}

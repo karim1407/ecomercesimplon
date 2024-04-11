@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil{% endblock %}
+
+{% block body %}
+
+    <div class="block">
+        <h1 class="pb-30">Page  pour contacter {{user.name}}</h1>
+        <br>
+        <h2> Son mail :{{user.email}}</h2>
+        <img src="{{ asset(user.avatar) }}" width="100" height="100" alt="image du profil">
+    </div>
+
+{% if ateliers is defined and ateliers|length > 0 %}
+
+    <h2 class="text-center mb-3">Contact de l'entreprise</h2>
+    {% for atelier in ateliers  %}
+            <p class="text-center"> <strong> Nom de l'entreprise :</strong> {{atelier.nomentreprise}}</p>
+            <p class="text-center"> <strong>Description :</strong> {{atelier.description}}</p>
+            <p class="text-center"> <strong>Site web du santonnier : </strong> {{atelier.siteweb}}</p>
+    {% endfor %}
+
+{% endif %}
+
+{% endblock %}

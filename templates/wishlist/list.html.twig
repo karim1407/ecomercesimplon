@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="text-center mb-5">Ma Liste de Souhaits</h1>
+
+
+<table class="table table-secondary table-sm">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Images</th>
+            <th>Prix</th>
+            <th>Vendeur</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for wishlist in wishlists %}
+        <tr>
+        <td><p>{{ wishlist.produit.nom}}</p></td> 
+        <td><img src="{{ asset(wishlist.produit.image) }}" width="100px" heigth="100px" alt="image du produit ajouter"></td> 
+        <td><p>{{ wishlist.produit.prix}}$</p></td> 
+         <td>
+          <a class="text-decoration-none" href="{{ path('profil', { 'id': wishlist.produit.santonnier.id}) }}">
+        {{ wishlist.produit.santonnier.name | title  }} {{ wishlist.produit.santonnier.lastname | title  }}</a>
+         </td> 
+        <td><a class="btn btn-danger" href="{{path('wishlist_delete',{'id': wishlist.id})}}">Supprimer de ma liste</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+

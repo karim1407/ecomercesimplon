@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'inscription Santonnier{% endblock %}
+
+
+    {% block stylesheets %}
+        {{parent()}}
+        {{ encore_entry_link_tags('inscription') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{parent()}}
+        {{ encore_entry_script_tags('inscription') }}
+    {% endblock %}
+
+{% block body %}
+<h1>S'inscrire</h1>
+<section>
+    <div class="form">
+
+        <img class="logo_form" src="{{asset('img/logo.png')}}" alt="image du logo du site " with="150px" height="150px">
+         {{ form_start(form) }}
+            {{ form_row(form.name, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_row(form.lastName, { 'attr': {'class': 'form-control'} }) }}
+             {{ form_row(form.pictureFile, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_row(form.email, { 'attr': {'class': 'form-control'} }) }}
+           {{ form_row(form.password.first, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_row(form.password.second, { 'attr': {'class': 'form-control'} }) }}
+            <div class="test">
+                <p>Votre mot de passe doit  contenir:</p>
+                <small  id="minuscule" class="invalid" >Au moins une minuscule,</small>
+                <small  id="majuscule" class="invalid" >une majuscule,</small>
+                 <small id="chiffre" class="invalid" >un chiffre,</small>
+                <small  id="special" class="invalid" >des caratéres spéciaux [&@§!?.] et </small>
+                <small  id="longueur" class="invalid" >au moins 6 caractéres,</small>
+            </div>
+            {{ form_row(form.captcha, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_widget(form) }}
+
+        
+        <div class="bas_form">
+            <button id="soumettre" class="btn btn-sm btn-primary">S'inscrire</button>
+            <small>
+            <a href="{{path('login')}}">Déja un compte ?</a>
+            </small>
+        </div>
+        {{form_end(form)}}
+    </div>
+</section>
+{% endblock %}

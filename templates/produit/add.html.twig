@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter ou modifications des santons{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Ajouter ou modifiées des santons</h1>
+    {{form_start(form)}}
+    {{form_rest(form)}}
+    <a href="{{path('profil_user')}}">
+    <button class="btn btn-primary mb-2">
+     {% if id is not null %}
+     Modifier un santon
+     {% else %}
+        Ajouter un santon
+     {% endif %}
+     
+    </button>
+    </a>
+    {{form_end(form)}}
+{% endblock %}

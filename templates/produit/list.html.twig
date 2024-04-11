@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes des santons{% endblock %}
+
+{% block body %}
+   
+<section class="list_product_santons">
+<h1>Liste des santons</h1>
+   <table class="table table-light table-striped">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Prix</th>
+        <th>Typologie</th>
+        <th>Taille</th>
+        <th>Category</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+
+      <tbody>
+       {% for produit in produits %}
+      <tr>
+           <td>{{ produit.nom }}</td>
+           <td>{{ produit.description }}</td>
+           <td width="100px">{{ produit.prix }} $</td>
+           <td>
+                {% if produit.typologie == true %}
+                <p>Peint</p>
+                {% else %}
+                    <p>Non peint</p>
+            {% endif %}
+           </td>
+           <td width="100px">{{ produit.taille }} cm</td>
+           <td>
+        {{ produit.category.title }}
+          </td>
+           <td><img src="{{ asset(produit.image) }}" width="100px" alt="image du produit"></td>
+
+           <td>
+               <a href="{{ path('produit_delete', {id: produit.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce santon ?');" >
+                   <button class="btn btn-danger">Supprimer le santon</button>
+               </a>
+
+               <a href="{{ path('produit_edit', {id: produit.id}) }}">
+                   <button class="btn btn-warning">Modifier le santon</button>
+               </a>
+           </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+
+   </table>
+</section>
+        
+{% endblock %}

@@ -1,0 +1,46 @@
+
+.form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 30px;
+    width: 65%;
+    margin-bottom: 30px;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    box-shadow:  23px 23px 46px #bebebe,
+             -23px -23px 46px #ffffff;
+}
+section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1
+{
+    text-align: center;
+}
+.bas_form
+{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+}
+.bas_form button
+{
+    margin-right: 15px;
+}
+.logo_form
+{
+    border-radius: 10%;
+}
+.red
+{
+    color: red;
+}

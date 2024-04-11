@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Page de connexion{% endblock %}
+
+  {% block stylesheets %}
+        {{parent()}}
+        {{ encore_entry_link_tags('inscription') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{parent()}}
+        {{ encore_entry_script_tags('inscription') }}
+    {% endblock %}
+
+{% block body %}
+    <h1>Connexion à votre page de profil</h1>
+
+    <section>
+        <div class="form">
+            <img class="logo_form" src="{{asset('img/logo.png')}}" alt="Image du logo du site" width="150px" height="150px">
+            <form action="" method="post">
+                <label for="email" class="form-label">*Votre email</label>
+                <input type="email" autofocus name="_username" id="email" value="{{ user }}" class="form-control" placeholder="Votre email">
+                <br>
+                <label for="password" class="form-label">*Mot de passe</label>
+                <input type="password" name="_password" id="password" class="form-control">
+
+                <div class="form-check">
+                    <input type="checkbox" name="_remember_me" id="remember_me" class="form-check-input" checked>
+                    <label for="remember_me" class="form-check-label">Se souvenir de moi</label>
+                </div>
+                 {% if error %}
+                <div class="red">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+            <br>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <button class="btn btn-sm btn-primary w-100" type="submit">Se connecter</button>
+             <br><br>
+                <a class="btn btn-sm btn-primary w-100" href="{{ path('inscription') }}" class="btn btn-link">S'inscrire</a>
+            </form>
+            <a href="{{path('reset_password_request')}}">Mot de passe oublié ?</a>
+        </div>
+    </section>
+{% endblock %}

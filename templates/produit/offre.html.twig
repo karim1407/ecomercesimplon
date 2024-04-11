@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}les offres de nos santonniers{% endblock %}
+
+
+{% block body %}
+<h1 class="text-center">Les offres de nos santonniers</h1>
+
+<div class="container">
+    <div class="row">
+        {% for produit in pagination %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+            <a href="{{ path('produit_detail', {'id': produit.id}) }}">
+                <img  class="card-img-top" src="{{asset(produit.image)}}" alt="Image du produit">
+            </a>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-center">{{ produit.nom }}</h5>
+                    <p class="card-price">{{ produit.prix }} $</p>
+                    <p class="card-text">Vendeur : 
+                    <a href="{{ path('profil', {'id': produit.santonnier.id})}}">
+                    {{ produit.santonnier.name }} {{ produit.santonnier.lastname }}
+                    </a>
+                    </p>
+
+                    <p class="card-text">Taille : {{ produit.taille }} cm</p>
+                    <p class="card-text">{{ produit.description }}</p>
+                    
+                    <a href="{{ path('wishlist_add', {'id': produit.id}) }}" class="btn btn-success mt-auto">Ajouter à ma liste de souhaits <i class="fa-solid fa-heart"></i></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+</div>
+{% endblock %}

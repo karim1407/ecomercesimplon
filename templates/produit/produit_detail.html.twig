@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ produit.nom }} - Détail du Produit{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .product-image {
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-description,
+        .product-details {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .product-details {
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ produit.nom }}</h1>
+        <img src="{{ asset(produit.image) }}" width="400px" alt="image du produit" class="product-image">
+        <p class="product-description">Description: {{ produit.description }}</p>
+        <p class="product-details">Taille: {{ produit.taille }}cm</p>
+        <p class="product-details">Prix: {{ produit.prix }} $</p>
+        <p class="product-details">Catégorie: {{ produit.category.title }}</p>
+         <a href="{{ path('wishlist_add', {'id': produit.id}) }}" class="btn btn-success mt-auto  w-100">Ajouter à ma liste de souhaits <i class="fa-solid fa-heart"></i></a>
+    </div>
+{% endblock %}

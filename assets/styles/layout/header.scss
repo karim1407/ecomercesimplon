@@ -1,0 +1,158 @@
+nav{
+    padding: 10px;
+    display: flex;
+    font-family: "Roboto", sans-serif;
+    justify-content: space-between;
+    align-items: center;
+   background-color: #c28165;
+    color: white;
+}
+.header-search-result
+{
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    width: 100%;
+}
+a
+{
+    padding: 10px;
+    text-decoration: none;
+}
+.header-search-loading
+{
+    height: 30px;
+    position: absolute;
+    z-index: 3;
+    margin-left: -30px;
+}
+#search {
+    position: relative;
+    border-radius: 10px;
+}
+
+#search input {
+    padding-left: 25px; 
+    padding-right: 25px;
+}
+
+#search i {
+    position: absolute;
+    padding: 6px;
+    z-index: 2;
+    left: 2px; 
+    color: #c28165;
+    top: 1px;
+}
+
+.membre
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+ 
+}
+.membre .fa-solid
+{
+    margin-top:6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-right: 20px;
+}
+.membre a
+{
+    text-decoration: none;
+    color: white;
+}
+
+.links a{
+    text-decoration: none;
+    color: white;
+    margin-left: 5px;
+}
+
+.menu{
+    display: none;
+    cursor: pointer;
+}
+/* logo du profil quand l'utilisateur est connecté  */
+#logo_profil
+{
+    border-radius: 50%;
+}
+
+.logo
+{
+    margin-top: 2px;
+    border-radius: 10px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.logo:hover
+{
+   scale: 1.1;
+}
+.marque p
+{
+    margin-top: 14px;
+    display: flex;
+    margin-left: 90px;
+    font-size: 19px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:1000px) {
+
+    .links{
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: -300px;
+        left: 0;
+        background-color:#c28165;
+        width: 100%;
+        padding: 17px 0px;
+        transition: 0.5s;
+    }
+
+    .links a{
+        margin-top: 21px;
+    }
+    .menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+       
+}
+
+    .menu span{
+        width: 30px;
+        height: 5px;
+        background:white;
+        margin-top: 4px;
+        transition: 0.3s;
+    }
+
+    .membre .fa-solid
+    {
+        margin-left: 0%;
+    }
+    .marque p
+    {
+        margin-left: 0%;
+    }
+}

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil{% endblock %}
+
+{% block body %}
+
+    <div class="block">
+        <h1 class="pb-30">Page de profil  de {{app.user.name}}  {{app.user.lastName}}</h1>
+        <br>
+        <h2>{{app.user.email}}</h2>
+        <img src="{{app.user.avatar}}" width="100" height="100" alt="image du profil">
+      
+            {% if is_granted('ROLE_SANTONNIER') %}
+            <br>
+            <a href="{{ path('produit_add')}}">Ajouter un santon</a>
+            <br>
+            <a href="{{ path('produit_list')}}">Liste des santon</a>
+            <br>
+             <br>
+            <a href="{{ path('atelier_add')}}">Ajouter des informations d'entreprise</a>
+            <br>
+            <a href="{{ path('atelier_list')}}">Liste des informations des entreprises</a>
+            <br>
+            
+            {% endif %}
+            <br>
+
+        <small>
+        <br>
+        <a class="btn btn-secondary" href="{{path('profil_edit')}}">Modifier mes informations</a>
+        </small>
+    </div>
+
+{% endblock %}

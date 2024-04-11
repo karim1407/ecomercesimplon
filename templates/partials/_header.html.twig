@@ -1,0 +1,44 @@
+<nav>
+    <a href="{{path('home')}}">
+        <img class="logo" src="{{asset('img/logo.png')}}" width="50px" height="50px" alt="logo santonnier du site" >
+    </a>  
+
+  <div id="search" class="flex-fill">
+    <i class="fa-solid fa-search"></i>
+    <input @input="updateInput" ref="input" type="text" placeholder="rechercher un santons">
+    <img v-if="isLoading" src="{{ asset('img/loading.gif') }}" class="header-search-loading" alt="gif de chargement">
+    <ul class="header-search-result" v-if="produits">
+        <a v-for="produit in produits" :key="produit.id"
+        v-bind:href="'/produit/' + produit.id">${ produit.nom }$</a>
+    </ul>
+  </div>
+
+
+ {% if is_granted('ROLE_USER') %}
+    <a class="logo" href="{{ path('profil_user') }}">
+        <img src=" {{ asset(app.user.avatar) }}" width="40px" height="40px" alt="photo de profil" style="border-radius: 50%;">
+    </a> 
+
+    {% else %}
+    <div class="membre">
+        <a href="{{ path('inscription')}}">
+            <i class="fa-solid fa-user"></i>
+        </a>
+    <div>
+
+    {% endif %}
+       
+    <div class="links">
+
+        <a href="{{ path('home') }}">Accueil</a>
+        <a href="{{ path('wishlist_list') }}">Liste d'envie</a>
+        <a href="{{ path('offre_list') }}">Liste santons</a>
+        <a href="{{ path('contact') }}">Contact</a>
+    </div>
+
+    <div class="menu">
+        <span id="top"></span>
+        <span id="middle"></span>
+        <span id="bottom"></span>
+    </div>
+</nav>

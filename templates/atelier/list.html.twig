@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page de liste  d'atelier{% endblock %}
+
+{% block body %}
+<h1 class="text-center mb-5">Page liste des ateliers</h1>
+<table class="table table-secondary table-striped-columns">
+    <thead>
+        <tr>
+            <th>Nom de l'entreprise</th>
+            <th>Description</th>
+            <th>Site web</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for atelier in ateliers %}
+        <tr>
+            <td>{{atelier.nomentreprise}}</td>
+            <td>{{atelier.description}}</td>
+            <td>{{atelier.siteweb}}</td>
+            <td>
+            <a class="btn btn-warning" href="{{ path('atelier_edit', {'id': atelier.id}) }}">Modification</a>
+            <a class="btn btn-danger" onclick="confirm('êtes vous sur de supprimer cette ligne ?')" href="{{ path('atelier_delete', {'id': atelier.id}) }}">Supprimer</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+
+
+</table>
+{% endblock %}
